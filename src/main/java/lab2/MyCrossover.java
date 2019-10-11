@@ -23,7 +23,7 @@ public class MyCrossover extends AbstractCrossover<double[]>
         ArrayList children = new ArrayList(2);
 
         // your implementation:
-        boolean[] crossoverPoints = this.generateCrossoverPoints(p1.length, random);
+        boolean[] crossoverPoints = this.generateCrossoverPoints(p1.length, numberOfCrossoverPoints, random);
         double[] child1 = new double[p1.length];
         double[] child2 = new double[p1.length];
         for (int i = 0; i < p1.length; i++) {
@@ -39,12 +39,12 @@ public class MyCrossover extends AbstractCrossover<double[]>
         return children;
     }
 
-    private boolean[] generateCrossoverPoints(int length, Random random)
+    private boolean[] generateCrossoverPoints(int length, int n, Random random)
     {
         // Fill a list with the required number of crossovers
         boolean[] crossoverPoints = new boolean[length];
         for (int i = 0; i < crossoverPoints.length; i++)
-            crossoverPoints[i] = (i < length);
+            crossoverPoints[i] = (i < n);
 
         // Shuffle the list
         for (int i = crossoverPoints.length - 1; i > 0; i--) {
