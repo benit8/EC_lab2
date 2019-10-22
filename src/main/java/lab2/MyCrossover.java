@@ -33,18 +33,15 @@ public class MyCrossover extends AbstractCrossover<double[]>
 
         children.add(child1);
         children.add(child2);
-
-        // children.add(p1);
-        // children.add(p2);
         return children;
     }
 
-    private boolean[] generateCrossoverPoints(int length, int n, Random random)
+    private boolean[] generateCrossoverPoints(int length, int numberOfCrossoverPoints, Random random)
     {
         // Fill a list with the required number of crossovers
         boolean[] crossoverPoints = new boolean[length];
         for (int i = 0; i < crossoverPoints.length; i++)
-            crossoverPoints[i] = (i < n);
+            crossoverPoints[i] = (i < numberOfCrossoverPoints);
 
         // Shuffle the list
         for (int i = crossoverPoints.length - 1; i > 0; i--) {
